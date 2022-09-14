@@ -45,7 +45,7 @@ public class GetBanco {
 		
 	}
 	
-	//#################### CREATE ##########################
+	//CREATE 
 	
 	public void cadastrarProduto(Produto obj) {
 		try {
@@ -65,8 +65,22 @@ public class GetBanco {
 		}
 	}
 	
+	//DELETE
+	public void deletarProduto(Produto obj) {
+		try {
+			String sql = "DELETE FROM produto WHERE id = ?";
+			PreparedStatement  stmt = con.prepareStatement(sql);
+			stmt.setInt(1, obj.getId());
+			stmt.execute();
+			stmt.close();
+			
+			 JOptionPane.showMessageDialog(null, "Dados Deletados!");
+		} catch (Exception e) {
+			 JOptionPane.showMessageDialog(null,"Dados não Deletados"+ e);
+	}
 	
-	//###################  UPDATE  #############
+}
+	//UPDATE
 	public void atualizarProduto(Produto obj) {
 		try {
 			String sql = "UPDATE produto SET descricao =? WHERE id =?";
@@ -81,22 +95,6 @@ public class GetBanco {
 			 JOptionPane.showMessageDialog(null,"Dados não Alterados"+ e);
 	}
 	}
-	
-		//###################  DELETE  #############
-		public void deletarProduto(Produto obj) {
-			try {
-				String sql = "DELETE FROM produto WHERE id = ?";
-				PreparedStatement  stmt = con.prepareStatement(sql);
-				stmt.setInt(1, obj.getId());
-				stmt.execute();
-				stmt.close();
-				
-				 JOptionPane.showMessageDialog(null, "Dados Deletados!");
-			} catch (Exception e) {
-				 JOptionPane.showMessageDialog(null,"Dados não Deletados"+ e);
-		}
-		
-}
 
 }
 

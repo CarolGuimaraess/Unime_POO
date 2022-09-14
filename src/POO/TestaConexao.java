@@ -10,7 +10,7 @@ public class TestaConexao {
 			
 			new Conexao().getConnection();
 			
-			JOptionPane.showMessageDialog(null, "Banco Conectado");
+			JOptionPane.showMessageDialog(null, "Banco Conectado Com Sucesso");
 			
 		} catch (Exception e) {
 			
